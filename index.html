@@ -4,39 +4,128 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Varun Mittal | Data Scientist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <img src="images/IMG_0629.jpeg" alt="Varun Mittal" class="profile-img">
-        <h1>Varun Mittal</h1>
-        <p>Data Scientist | Machine Learning Engineer</p>
+    <header class="parallax">
+        <div class="overlay"></div>
+        <div class="header-content">
+            <img src="images/profile.jpg" alt="Varun Mittal" class="profile-img">
+            <h1 class="animate-pop-in">Varun Mittal</h1>
+            <p class="title animate-pop-in">Data Scientist | Machine Learning Engineer</p>
+            <div class="social-links animate-pop-in">
+                <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/varunmittal" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
     </header>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Singapore-based data scientist with expertise in machine learning, AI solutions, and business analytics. Master's in IT Business from SMU with experience at Splore (Temasek-backed) and other tech firms.</p>
-    </section>
+    <nav class="sticky-nav">
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-    <section id="projects">
-        <h2>Featured Projects</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <h3>Smart ATS RAG Assistant</h3>
-                <p>AI-powered applicant tracking system enhancement</p>
-                <a href="projects/smart-ats.html">View Details</a>
-            </div>
-            <div class="project-card">
-                <h3>Customer Churn Prediction</h3>
-                <p>End-to-end ML pipeline for retention analytics</p>
-                <a href="projects/churn-prediction.html">View Details</a>
-            </div>
-            <div class="project-card">
-                <h3>Luxasia Customer Growth</h3>
-                <p>Market segmentation for luxury beauty products</p>
-                <a href="projects/luxasia.html">View Details</a>
+    <section id="about" class="section fade-in">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>Singapore-based data scientist with expertise in machine learning, AI solutions, and business analytics. Master's in IT Business from SMU with experience at Splore (Temasek-backed) and other tech firms.</p>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-brain"></i> Machine Learning</h3>
+                    <ul>
+                        <li>XGBoost/Random Forest</li>
+                        <li>Deep Learning</li>
+                        <li>LLM Fine-tuning</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> Data Engineering</h3>
+                    <ul>
+                        <li>Python/Pandas</li>
+                        <li>SQL</li>
+                        <li>AWS</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="project-grid">
+                <!-- Project cards will go here (same as before) -->
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section fade-in">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Email</h3>
+                        <a href="mailto:varun.mittal@example.com" class="contact-link">
+                            varunmittal155@gmail.com
+                        </a>
+                    </div>
+                </div>
+    
+                <div class="contact-method">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Phone</h3>
+                        <div class="phone-numbers">
+                            <div class="phone-number">
+                                <span class="country-flag">🇸🇬</span>
+                                <a href="tel:+6585453428" class="contact-link">
+                                    +65 85453428 (Singapore)
+                                </a>
+                            </div>
+                            <div class="phone-number">
+                                <span class="country-flag">🇮🇳</span>
+                                <a href="tel:+919899873759" class="contact-link">
+                                    +91 9899873759 (India)
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="contact-method">
+                    <div class="contact-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>LinkedIn</h3>
+                        <a href="https://www.linkedin.com/in/varunmittal155/" 
+                           target="_blank" 
+                           class="contact-link">
+                            linkedin.com/in/yourprofile
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <p>&copy; 2025 Varun Mittal. All rights reserved.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
