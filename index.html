@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Portfolio</title>
+    <title>Varun Mittal - Portfolio</title>
     <style>
         * {
             margin: 0;
@@ -114,7 +114,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.1);
         }
 
         .hero-content {
@@ -127,15 +127,15 @@
             height: 200px;
             border-radius: 50%;
             margin: 0 auto 2rem;
-            border: 5px solid rgba(255, 255, 255, 0.3);
+            border: 5px solid rgba(255, 255, 255, 0.8);
             object-fit: cover;
             transition: transform 0.3s ease;
-            background: rgba(255, 255, 255, 0.1);
+            background: white;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 4rem;
-            color: rgba(255, 255, 255, 0.7);
+            color: #333;
         }
 
         .profile-image:hover {
@@ -144,17 +144,26 @@
 
         .hero h1 {
             font-size: 3.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            color: #ddd;
             font-weight: 300;
         }
 
         .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            max-width: 600px;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0.8;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.6;
         }
 
         .cta-button {
@@ -174,6 +183,78 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--medium-gray);
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .skill-tag {
+            background: var(--secondary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--light-gray);
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--medium-gray);
+            font-size: 1rem;
+        }
+
         /* Projects Section */
         .projects {
             padding: 100px 0;
@@ -181,9 +262,9 @@
         }
 
         .section-title {
-            text-align: center;
+            text-align: left;
             font-size: 2.5rem;
-            margin-bottom: 3rem;
+            margin-bottom: 1rem;
             color: var(--primary-color);
             position: relative;
         }
@@ -192,11 +273,10 @@
             content: '';
             position: absolute;
             width: 80px;
-            height: 3px;
+            height: 4px;
             background: var(--secondary-color);
             bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 0;
         }
 
         .projects-grid {
@@ -310,6 +390,43 @@
             border-color: var(--accent-color);
         }
 
+        /* Project Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: none;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 15px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: black;
+        }
+
         /* Footer */
         .footer {
             background: var(--dark-gray);
@@ -395,6 +512,20 @@
             .section-title {
                 font-size: 2rem;
             }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
+            }
         }
 
         /* Smooth scrolling */
@@ -426,9 +557,10 @@
     <nav class="navbar" id="navbar">
         <div class="container">
             <div class="nav-container">
-                <div class="logo">Your Name</div>
+                <div class="logo">Varun Mittal</div>
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -439,53 +571,101 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <!-- Replace this div with an actual image: <img src="your-photo.jpg" alt="Your Name" class="profile-image"> -->
-            <div class="profile-image">👨‍💻</div>
-            <h1>Your Name</h1>
-            <p>Python Developer & Software Engineer passionate about creating innovative solutions and building scalable applications that make a difference.</p>
-            <a href="#projects" class="cta-button">View My Work</a>
+            <div class="profile-image">👨‍💼</div>
+            <h1>Varun Mittal</h1>
+            <div class="subtitle">Data Scientist | Machine Learning Engineer</div>
+            <p>Passionate about transforming data into actionable insights and building intelligent systems that solve real-world problems. Experienced in Python, machine learning, and data analytics.</p>
+            <a href="#about" class="cta-button">Learn More About Me</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content fade-in">
+                <div class="about-text">
+                    <h2>About Me</h2>
+                    <p>I'm a passionate Data Scientist and Machine Learning Engineer with expertise in transforming complex data into actionable business insights. With a strong foundation in Python programming and statistical analysis, I specialize in building predictive models and data-driven solutions.</p>
+                    
+                    <p>My experience spans across various domains including predictive analytics, natural language processing, computer vision, and deep learning. I enjoy working on challenging problems that require innovative approaches and cutting-edge technologies.</p>
+                    
+                    <div class="skills">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Data Visualization</span>
+                        <span class="skill-tag">Deep Learning</span>
+                    </div>
+                </div>
+                
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">3+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">ML Models Deployed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">95%</div>
+                        <div class="stat-label">Accuracy Rate</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Projects Section -->
     <section class="projects" id="projects">
         <div class="container">
-            <h2 class="section-title fade-in">My Projects</h2>
+            <h2 class="section-title fade-in">Featured Projects</h2>
             <div class="projects-grid">
                 <!-- Project 1 -->
                 <div class="project-card fade-in" onclick="openProject('project1')">
-                    <div class="project-image">🤖</div>
+                    <div class="project-image">🎯</div>
                     <div class="project-content">
-                        <h3 class="project-title">AI Data Analytics Platform</h3>
-                        <p class="project-description">A comprehensive machine learning platform built with Python that analyzes large datasets and provides intelligent insights for business decision making.</p>
+                        <h3 class="project-title">Customer Churn Prediction Model</h3>
+                        <p class="project-description">Built a machine learning model to predict customer churn with 94% accuracy using ensemble methods. Implemented feature engineering and deployed the model using Flask API for real-time predictions.</p>
                         <div class="project-tech">
                             <span class="tech-tag">Python</span>
-                            <span class="tech-tag">TensorFlow</span>
-                            <span class="tech-tag">Django</span>
-                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Scikit-learn</span>
+                            <span class="tech-tag">XGBoost</span>
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">Pandas</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="project-link primary">Live Demo</a>
-                            <a href="#" class="project-link">GitHub</a>
+                            <a href="#" class="project-link primary" onclick="event.stopPropagation()">Live Demo</a>
+                            <a href="#" class="project-link" onclick="event.stopPropagation()">GitHub</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 2 -->
                 <div class="project-card fade-in" onclick="openProject('project2')">
-                    <div class="project-image">🌐</div>
+                    <div class="project-image">🧠</div>
                     <div class="project-content">
-                        <h3 class="project-title">Web Scraping Automation Suite</h3>
-                        <p class="project-description">Automated web scraping solution that collects and processes data from multiple sources, featuring smart scheduling and data validation.</p>
+                        <h3 class="project-title">Deep Learning Image Classifier</h3>
+                        <p class="project-description">Developed a CNN-based image classification system using TensorFlow that achieved 96% accuracy on medical imaging data. Implemented data augmentation and transfer learning techniques.</p>
                         <div class="project-tech">
                             <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Scrapy</span>
-                            <span class="tech-tag">BeautifulSoup</span>
-                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">Keras</span>
+                            <span class="tech-tag">OpenCV</span>
+                            <span class="tech-tag">NumPy</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="project-link primary">Live Demo</a>
-                            <a href="#" class="project-link">GitHub</a>
+                            <a href="#" class="project-link primary" onclick="event.stopPropagation()">Live Demo</a>
+                            <a href="#" class="project-link" onclick="event.stopPropagation()">GitHub</a>
                         </div>
                     </div>
                 </div>
@@ -494,36 +674,78 @@
                 <div class="project-card fade-in" onclick="openProject('project3')">
                     <div class="project-image">📊</div>
                     <div class="project-content">
-                        <h3 class="project-title">Financial Dashboard API</h3>
-                        <p class="project-description">RESTful API service for financial data visualization with real-time market updates, portfolio tracking, and risk analysis features.</p>
+                        <h3 class="project-title">Sales Forecasting Dashboard</h3>
+                        <p class="project-description">Created an interactive dashboard for sales forecasting using time series analysis. Features ARIMA and Prophet models with real-time data visualization and automated reporting.</p>
                         <div class="project-tech">
                             <span class="tech-tag">Python</span>
-                            <span class="tech-tag">FastAPI</span>
-                            <span class="tech-tag">Redis</span>
-                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Prophet</span>
+                            <span class="tech-tag">Streamlit</span>
+                            <span class="tech-tag">Plotly</span>
+                            <span class="tech-tag">Pandas</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="project-link primary">Live Demo</a>
-                            <a href="#" class="project-link">GitHub</a>
+                            <a href="#" class="project-link primary" onclick="event.stopPropagation()">Live Demo</a>
+                            <a href="#" class="project-link" onclick="event.stopPropagation()">GitHub</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 4 -->
                 <div class="project-card fade-in" onclick="openProject('project4')">
-                    <div class="project-image">🎯</div>
+                    <div class="project-image">🔍</div>
                     <div class="project-content">
-                        <h3 class="project-title">Task Management System</h3>
-                        <p class="project-description">Full-stack task management application with team collaboration features, deadline tracking, and productivity analytics.</p>
+                        <h3 class="project-title">NLP Sentiment Analysis Engine</h3>
+                        <p class="project-description">Built a comprehensive sentiment analysis system using BERT and traditional NLP techniques. Processes social media data in real-time with 92% accuracy across multiple languages.</p>
                         <div class="project-tech">
                             <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Flask</span>
-                            <span class="tech-tag">SQLAlchemy</span>
-                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">BERT</span>
+                            <span class="tech-tag">NLTK</span>
+                            <span class="tech-tag">spaCy</span>
+                            <span class="tech-tag">PyTorch</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="project-link primary">Live Demo</a>
-                            <a href="#" class="project-link">GitHub</a>
+                            <a href="#" class="project-link primary" onclick="event.stopPropagation()">Live Demo</a>
+                            <a href="#" class="project-link" onclick="event.stopPropagation()">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card fade-in" onclick="openProject('project5')">
+                    <div class="project-image">🏠</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Real Estate Price Predictor</h3>
+                        <p class="project-description">Developed a regression model to predict real estate prices using advanced feature engineering and ensemble methods. Includes web scraping component for live market data.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Random Forest</span>
+                            <span class="tech-tag">BeautifulSoup</span>
+                            <span class="tech-tag">Django</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link primary" onclick="event.stopPropagation()">Live Demo</a>
+                            <a href="#" class="project-link" onclick="event.stopPropagation()">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card fade-in" onclick="openProject('project6')">
+                    <div class="project-image">⚡</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Anomaly Detection System</h3>
+                        <p class="project-description">Implemented an unsupervised learning system for fraud detection using isolation forests and autoencoders. Achieved 98% precision in detecting anomalous transactions.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Isolation Forest</span>
+                            <span class="tech-tag">Autoencoders</span>
+                            <span class="tech-tag">Matplotlib</span>
+                            <span class="tech-tag">Seaborn</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link primary" onclick="event.stopPropagation()">Live Demo</a>
+                            <a href="#" class="project-link" onclick="event.stopPropagation()">GitHub</a>
                         </div>
                     </div>
                 </div>
@@ -531,16 +753,24 @@
         </div>
     </section>
 
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer" id="contact">
         <div class="container">
             <div class="social-links">
-                <a href="#" class="social-link">📧</a>
-                <a href="#" class="social-link">💼</a>
-                <a href="#" class="social-link">🐙</a>
-                <a href="#" class="social-link">🐦</a>
+                <a href="mailto:varun@example.com" class="social-link">📧</a>
+                <a href="https://linkedin.com/in/varunmittal" class="social-link">💼</a>
+                <a href="https://github.com/varunmittal" class="social-link">🐙</a>
+                <a href="https://twitter.com/varunmittal" class="social-link">🐦</a>
             </div>
-            <p>&copy; 2025 Your Name. All rights reserved.</p>
+            <p>&copy; 2025 Varun Mittal. All rights reserved.</p>
         </div>
     </footer>
 
@@ -587,137 +817,175 @@
             observer.observe(el);
         });
 
+        // Modal functionality
+        const modal = document.getElementById('projectModal');
+        const modalContent = document.getElementById('modalContent');
+        const closeBtn = document.getElementsByClassName('close')[0];
+
         // Project click handler
         function openProject(projectId) {
-            // Create a new page for the project
-            const projectWindow = window.open('', '_blank');
-            
             let projectContent = '';
             
             switch(projectId) {
                 case 'project1':
                     projectContent = `
-                        <h1>AI Data Analytics Platform</h1>
-                        <p>Detailed information about the AI Data Analytics Platform project...</p>
-                        <h2>Features</h2>
+                        <h1>Customer Churn Prediction Model</h1>
+                        <p>This project focuses on predicting customer churn using advanced machine learning techniques to help businesses retain customers and reduce revenue loss.</p>
+                        <h2>Key Features</h2>
                         <ul>
-                            <li>Machine Learning Integration</li>
-                            <li>Real-time Data Processing</li>
-                            <li>Interactive Dashboards</li>
-                            <li>Predictive Analytics</li>
+                            <li>94% prediction accuracy using ensemble methods</li>
+                            <li>Real-time API for instant predictions</li>
+                            <li>Feature importance analysis</li>
+                            <li>Interactive dashboard for business insights</li>
+                            <li>Automated model retraining pipeline</li>
                         </ul>
                         <h2>Technologies Used</h2>
-                        <p>Python, TensorFlow, Django, PostgreSQL, Redis</p>
+                        <p>Python, Scikit-learn, XGBoost, Flask, Pandas, NumPy, Matplotlib</p>
+                        <h2>Model Performance</h2>
+                        <ul>
+                            <li>Precision: 92%</li>
+                            <li>Recall: 94%</li>
+                            <li>F1-Score: 93%</li>
+                            <li>ROC-AUC: 0.96</li>
+                        </ul>
                     `;
                     break;
                 case 'project2':
                     projectContent = `
-                        <h1>Web Scraping Automation Suite</h1>
-                        <p>Detailed information about the Web Scraping project...</p>
-                        <h2>Features</h2>
+                        <h1>Deep Learning Image Classifier</h1>
+                        <p>A state-of-the-art CNN-based image classification system for medical imaging with high accuracy and robust performance.</p>
+                        <h2>Key Features</h2>
                         <ul>
-                            <li>Multi-site Data Extraction</li>
-                            <li>Intelligent Scheduling</li>
-                            <li>Data Validation & Cleaning</li>
-                            <li>Rate Limiting & Proxy Support</li>
+                            <li>96% accuracy on medical imaging datasets</li>
+                            <li>Transfer learning with pre-trained models</li>
+                            <li>Data augmentation techniques</li>
+                            <li>Real-time image processing</li>
+                            <li>Model interpretability with Grad-CAM</li>
                         </ul>
                         <h2>Technologies Used</h2>
-                        <p>Python, Scrapy, BeautifulSoup, MongoDB, Celery</p>
+                        <p>Python, TensorFlow, Keras, OpenCV, NumPy, PIL</p>
+                        <h2>Architecture</h2>
+                        <ul>
+                            <li>ResNet-50 backbone with custom classifier</li>
+                            <li>Dropout and batch normalization layers</li>
+                            <li>Adam optimizer with learning rate scheduling</li>
+                            <li>Multi-class classification with softmax output</li>
+                        </ul>
                     `;
                     break;
                 case 'project3':
                     projectContent = `
-                        <h1>Financial Dashboard API</h1>
-                        <p>Detailed information about the Financial Dashboard API...</p>
-                        <h2>Features</h2>
+                        <h1>Sales
+                                                <h1>Sales Forecasting Dashboard</h1>
+                        <p>An interactive dashboard that provides accurate sales predictions using time series analysis and machine learning.</p>
+                        <h2>Key Features</h2>
                         <ul>
-                            <li>Real-time Market Data</li>
-                            <li>Portfolio Management</li>
-                            <li>Risk Analysis Tools</li>
-                            <li>RESTful API Design</li>
+                            <li>Multiple forecasting models (ARIMA, Prophet, LSTM)</li>
+                            <li>Interactive visualizations with drill-down capability</li>
+                            <li>Automated report generation</li>
+                            <li>Real-time data integration</li>
+                            <li>Anomaly detection in sales patterns</li>
                         </ul>
                         <h2>Technologies Used</h2>
-                        <p>Python, FastAPI, Redis, Docker, PostgreSQL</p>
+                        <p>Python, Prophet, Streamlit, Plotly, Pandas, Statsmodels</p>
+                        <h2>Performance Metrics</h2>
+                        <ul>
+                            <li>MAPE: 8.2%</li>
+                            <li>RMSE: 245 units</li>
+                            <li>Forecast horizon: 90 days</li>
+                            <li>Automated model selection</li>
+                        </ul>
                     `;
                     break;
                 case 'project4':
                     projectContent = `
-                        <h1>Task Management System</h1>
-                        <p>Detailed information about the Task Management System...</p>
-                        <h2>Features</h2>
+                        <h1>NLP Sentiment Analysis Engine</h1>
+                        <p>A comprehensive sentiment analysis system that processes social media data in real-time with high accuracy across multiple languages.</p>
+                        <h2>Key Features</h2>
                         <ul>
-                            <li>Team Collaboration</li>
-                            <li>Deadline Tracking</li>
-                            <li>Productivity Analytics</li>
-                            <li>Mobile Responsive Design</li>
+                            <li>92% accuracy across 5 languages</li>
+                            <li>Real-time processing pipeline</li>
+                            <li>Custom BERT fine-tuning</li>
+                            <li>Emotion detection (anger, joy, sadness, etc.)</li>
+                            <li>Topic modeling integration</li>
                         </ul>
                         <h2>Technologies Used</h2>
-                        <p>Python, Flask, SQLAlchemy, React, WebSocket</p>
+                        <p>Python, BERT, Transformers, NLTK, spaCy, PyTorch</p>
+                        <h2>Architecture</h2>
+                        <ul>
+                            <li>Multilingual BERT base model</li>
+                            <li>Custom classification head</li>
+                            <li>Distributed training setup</li>
+                            <li>Model serving via FastAPI</li>
+                        </ul>
+                    `;
+                    break;
+                case 'project5':
+                    projectContent = `
+                        <h1>Real Estate Price Predictor</h1>
+                        <p>A comprehensive system that predicts property prices using advanced feature engineering and ensemble methods.</p>
+                        <h2>Key Features</h2>
+                        <ul>
+                            <li>Automated data collection via web scraping</li>
+                            <li>Advanced feature engineering pipeline</li>
+                            <li>Interactive map visualization</li>
+                            <li>Comparative market analysis</li>
+                            <li>Investment ROI calculator</li>
+                        </ul>
+                        <h2>Technologies Used</h2>
+                        <p>Python, Random Forest, BeautifulSoup, Django, PostgreSQL, Leaflet.js</p>
+                        <h2>Model Performance</h2>
+                        <ul>
+                            <li>R² score: 0.89</li>
+                            <li>Mean Absolute Error: $18,500</li>
+                            <li>Feature importance visualization</li>
+                            <li>Automated model retraining</li>
+                        </ul>
+                    `;
+                    break;
+                case 'project6':
+                    projectContent = `
+                        <h1>Anomaly Detection System</h1>
+                        <p>An advanced unsupervised learning system for detecting fraudulent transactions and unusual patterns in financial data.</p>
+                        <h2>Key Features</h2>
+                        <ul>
+                            <li>98% precision in anomaly detection</li>
+                            <li>Multiple detection algorithms</li>
+                            <li>Real-time alert system</li>
+                            <li>Interactive visualization dashboard</li>
+                            <li>Automated case prioritization</li>
+                        </ul>
+                        <h2>Technologies Used</h2>
+                        <p>Python, Isolation Forest, Autoencoders, Matplotlib, Seaborn, Scikit-learn</p>
+                        <h2>System Architecture</h2>
+                        <ul>
+                            <li>Hybrid approach combining multiple algorithms</li>
+                            <li>Stream processing pipeline</li>
+                            <li>Automated threshold tuning</li>
+                            <li>Integration with existing fraud systems</li>
+                        </ul>
                     `;
                     break;
             }
             
-            projectWindow.document.write(`
-                <!DOCTYPE html>
-                <html>
-                <head>
-                    <title>Project Details</title>
-                    <style>
-                        body {
-                            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                            max-width: 800px;
-                            margin: 0 auto;
-                            padding: 2rem;
-                            line-height: 1.6;
-                            color: #333;
-                        }
-                        h1 {
-                            color: #2c3e50;
-                            border-bottom: 3px solid #3498db;
-                            padding-bottom: 0.5rem;
-                        }
-                        h2 {
-                            color: #34495e;
-                            margin-top: 2rem;
-                        }
-                        ul {
-                            padding-left: 1.5rem;
-                        }
-                        li {
-                            margin-bottom: 0.5rem;
-                        }
-                        .back-button {
-                            display: inline-block;
-                            padding: 0.5rem 1rem;
-                            background: #3498db;
-                            color: white;
-                            text-decoration: none;
-                            border-radius: 5px;
-                            margin-bottom: 2rem;
-                        }
-                        .back-button:hover {
-                            background: #2980b9;
-                        }
-                    </style>
-                </head>
-                <body>
-                    <a href="javascript:window.close()" class="back-button">← Back to Portfolio</a>
-                    ${projectContent}
-                </body>
-                </html>
-            `);
+            modalContent.innerHTML = projectContent;
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
         }
 
-        // Add some interactivity
-        document.querySelectorAll('.project-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
+        // Close modal when clicking X
+        closeBtn.onclick = function() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
     </script>
 </body>
 </html>
