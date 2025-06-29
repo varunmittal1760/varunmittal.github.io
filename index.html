@@ -383,6 +383,94 @@
             box-shadow: var(--shadow-hover);
         }
 
+        .project-image {
+            height: 200px;
+            background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .project-content p {
+            color: var(--medium-gray);
+            margin-bottom: 1rem;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+
+        .project-tag {
+            background: var(--secondary-color);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+        }
+
+        .contact p {
+            font-size: 1.1rem;
+            color: var(--medium-gray);
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 1.5rem;
+            background: var(--light-gray);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            background: var(--secondary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
         /* Footer */
         .footer {
             background: var(--dark-gray);
@@ -437,6 +525,12 @@
         }
 
         .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Show content immediately on load */
+        .fade-in.show-immediately {
             opacity: 1;
             transform: translateY(0);
         }
@@ -514,6 +608,11 @@
                 left: 50%;
                 transform: translateX(-50%);
             }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
         }
 
         @media (max-width: 480px) {
@@ -570,7 +669,7 @@
     <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
-            <div class="about-content fade-in">
+            <div class="about-content fade-in show-immediately">
                 <div class="about-text">
                     <h2>About Me</h2>
                     <p>I'm a Data Scientist with a Master's in Data Science & Analytics from Singapore Management University with hands-on experience building AI solutions for financial services. My expertise lies in developing production-grade machine learning models for fraud detection, risk assessment, and churn prediction.</p>
@@ -617,31 +716,86 @@
     <!-- Projects Section -->
     <section class="projects" id="projects">
         <div class="container">
-            <h2 class="section-title fade-in">Featured Projects</h2>
+            <h2 class="section-title fade-in show-immediately">Featured Projects</h2>
             <div class="projects-grid" id="projectsGrid">
                 <div class="project-card">
-                    <div style="height: 200px; background: linear-gradient(45deg, var(--secondary-color), var(--accent-color)); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">📊</div>
-                    <div style="padding: 2rem;">
+                    <div class="project-image">📊</div>
+                    <div class="project-content">
                         <h3>ML Fraud Detection System</h3>
-                        <p>Built an end-to-end fraud detection system using ensemble methods, achieving 95% accuracy on real financial data.</p>
-                        <div style="display: flex; gap: 0.5rem; margin: 1rem 0; flex-wrap: wrap;">
-                            <span style="background: var(--secondary-color); color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.85rem;">Python</span>
-                            <span style="background: var(--secondary-color); color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.85rem;">Scikit-learn</span>
-                            <span style="background: var(--secondary-color); color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.85rem;">AWS</span>
+                        <p>Built an end-to-end fraud detection system using ensemble methods, achieving 95% accuracy on real financial data with real-time monitoring and alerting capabilities.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Scikit-learn</span>
+                            <span class="project-tag">AWS</span>
+                            <span class="project-tag">Docker</span>
                         </div>
                     </div>
                 </div>
                 
                 <div class="project-card">
-                    <div style="height: 200px; background: linear-gradient(45deg, var(--secondary-color), var(--accent-color)); display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">🤖</div>
-                    <div style="padding: 2rem;">
+                    <div class="project-image">🤖</div>
+                    <div class="project-content">
                         <h3>LLM Fine-tuning Platform</h3>
-                        <p>Developed a platform for fine-tuning large language models for domain-specific tasks with automated evaluation metrics.</p>
-                        <div style="display: flex; gap: 0.5rem; margin: 1rem 0; flex-wrap: wrap;">
-                            <span style="background: var(--secondary-color); color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.85rem;">Python</span>
-                            <span style="background: var(--secondary-color); color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.85rem;">Transformers</span>
-                            <span style="background: var(--secondary-color); color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.85rem;">PyTorch</span>
+                        <p>Developed a platform for fine-tuning large language models for domain-specific tasks with automated evaluation metrics and deployment pipelines.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Transformers</span>
+                            <span class="project-tag">PyTorch</span>
+                            <span class="project-tag">Kubernetes</span>
                         </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">📈</div>
+                    <div class="project-content">
+                        <h3>Risk Assessment Dashboard</h3>
+                        <p>Created an interactive dashboard for real-time risk assessment and monitoring using advanced analytics and machine learning models.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Dash</span>
+                            <span class="project-tag">PostgreSQL</span>
+                            <span class="project-tag">Apache Airflow</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">🧠</div>
+                    <div class="project-content">
+                        <h3>Customer Churn Prediction</h3>
+                        <p>Implemented a comprehensive churn prediction system with feature engineering, model selection, and automated retraining capabilities.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">XGBoost</span>
+                            <span class="project-tag">MLflow</span>
+                            <span class="project-tag">FastAPI</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-content fade-in show-immediately">
+                <h2>Get In Touch</h2>
+                <p>I'm always interested in discussing new opportunities, collaborations, or innovative projects in data science and machine learning. Let's connect!</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <span>varun.mittal@example.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>💼</span>
+                        <span>LinkedIn Profile</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>🐙</span>
+                        <span>GitHub Portfolio</span>
                     </div>
                 </div>
             </div>
@@ -681,7 +835,7 @@
             }
         });
 
-        // Fade in animation
+        // Fade in animation with immediate show for key content
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -695,7 +849,8 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.fade-in').forEach(el => {
+        // Apply observer to fade-in elements that don't have show-immediately class
+        document.querySelectorAll('.fade-in:not(.show-immediately)').forEach(el => {
             observer.observe(el);
         });
 
@@ -715,6 +870,49 @@
                 }
             });
         });
+
+        // Add some interactive effects
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add smooth reveal animation for stats
+        const statNumbers = document.querySelectorAll('.stat-number');
+        const animateStats = () => {
+            statNumbers.forEach(stat => {
+                const finalNumber = parseFloat(stat.textContent);
+                let currentNumber = 0;
+                const increment = finalNumber / 50;
+                const timer = setInterval(() => {
+                    currentNumber += increment;
+                    if (currentNumber >= finalNumber) {
+                        stat.textContent = finalNumber + (stat.textContent.includes('+') ? '+' : '');
+                        clearInterval(timer);
+                    } else {
+                        stat.textContent = Math.floor(currentNumber) + (stat.textContent.includes('+') ? '+' : '');
+                    }
+                }, 30);
+            });
+        };
+
+        // Trigger stats animation when about section is visible
+        const aboutSection = document.querySelector('.about');
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(animateStats, 500);
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        statsObserver.observe(aboutSection);
     </script>
 </body>
 </html>
